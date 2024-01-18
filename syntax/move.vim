@@ -49,7 +49,7 @@ syn keyword   moveUnsafeKeyword unsafe
 syn keyword   moveKeyword     use nextgroup=moveModPath skipwhite skipempty
 " FIXME: Scoped impl's name is also fallen in this category
 syn keyword   moveKeyword     mod trait nextgroup=moveIdentifier skipwhite skipempty
-syn keyword   moveStorage     move mut ref static const copy store drop key
+syn keyword   moveStorage     move mut ref static const
 syn match     moveDefault     /\<default\ze\_s\+\(impl\|fn\|type\|const\)\>/
 syn keyword   moveAwait       await
 syn match     moveKeyword     /\<try\>!\@!/ display
@@ -76,6 +76,7 @@ syn keyword   moveReservedKeyword become do priv typeof unsized abstract virtual
 " Built-in types {{{2
 syn keyword   moveType        isize usize char bool u8 u16 u32 u64 u128 f32
 syn keyword   moveType        f64 i8 i16 i32 i64 i128 str Self
+syn keyword   moveType        copy drop store key
 
 " Things from the libstd v1 prelude (src/libstd/prelude/v1.rs) {{{2
 " This section is just straight transformation of the contents of the prelude,
