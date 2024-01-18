@@ -29,6 +29,7 @@ syn match     moveAssert      "\<assert\(\w\)*!" contained
 syn match     movePanic       "\<panic\(\w\)*!" contained
 syn match     moveAsync       "\<async\%(\s\|\n\)\@="
 syn keyword   moveKeyword     has
+syn keyword   moveKeyword     phantom
 syn keyword   moveKeyword     break
 syn keyword   moveKeyword     box
 syn keyword   moveKeyword     continue
@@ -74,7 +75,7 @@ syn match moveRawIdent "\<r#\h\w*" contains=NONE
 syn keyword   moveReservedKeyword become do priv typeof unsized abstract virtual final override
 
 " Built-in types {{{2
-syn keyword   moveType        isize usize char bool u8 u16 u32 u64 u128 f32
+syn keyword   moveType        isize usize char bool u8 u16 u32 u64 u128 f32 address
 syn keyword   moveType        f64 i8 i16 i32 i64 i128 str Self
 syn keyword   moveType        copy drop store key
 
@@ -119,7 +120,11 @@ syn match     moveModPath     "\w\(\w\)*::[^<]"he=e-3,me=e-3
 syn match     moveModPathSep  "::"
 
 syn match     moveFuncCall    "\w\(\w\)*("he=e-1,me=e-1
-syn match     moveFuncCall    "\w\(\w\)*<"he=e-3,me=e-3 " foo<T>();
+syn match     moveFuncCall    "\w\(\w\)*::<"he=e-3,me=e-3 " foo<T>();
+syn match     moveFuncCallLine    "\(\w*\)<.*>(" contains=moveFuncCallCustom " foo<T>();
+syn match moveFuncCallCustom "\w*<"me=e-1 contained
+
+syn match moveType "\([A-Z]\w*\)"
 
 " This is merely a convention; note also the use of [A-Z], restricting it to
 " latin identifiers rather than the full Unicode uppercase. I have not used
@@ -340,6 +345,7 @@ hi def link moveModPathSep    Delimiter
 hi def link moveFunction      Function
 hi def link moveFuncName      Function
 hi def link moveFuncCall      Function
+hi def link moveFuncCallCustom      Function
 hi def link moveShebang       Comment
 hi def link moveCommentLine   Comment
 hi def link moveCommentLineDoc SpecialComment
