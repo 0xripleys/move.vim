@@ -28,10 +28,6 @@ syn match moveExistentialContextual /\<existential\_s\+type/ transparent contain
 syn match     moveAssert      "\<assert\(\w\)*!" contained
 syn match     movePanic       "\<panic\(\w\)*!" contained
 syn match     moveAsync       "\<async\%(\s\|\n\)\@="
-syn keyword   moveKeyword     copy
-syn keyword   moveKeyword     store
-syn keyword   moveKeyword     drop
-syn keyword   moveKeyword     key
 syn keyword   moveKeyword     break
 syn keyword   moveKeyword     box
 syn keyword   moveKeyword     continue
@@ -52,7 +48,7 @@ syn keyword   moveUnsafeKeyword unsafe
 syn keyword   moveKeyword     use nextgroup=moveModPath skipwhite skipempty
 " FIXME: Scoped impl's name is also fallen in this category
 syn keyword   moveKeyword     mod trait nextgroup=moveIdentifier skipwhite skipempty
-syn keyword   moveStorage     move mut ref static const
+syn keyword   moveStorage     move mut ref static const copy store drop key
 syn match     moveDefault     /\<default\ze\_s\+\(impl\|fn\|type\|const\)\>/
 syn keyword   moveAwait       await
 syn match     moveKeyword     /\<try\>!\@!/ display
