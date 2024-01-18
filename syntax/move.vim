@@ -119,7 +119,7 @@ syn match     moveModPath     "\w\(\w\)*::[^<]"he=e-3,me=e-3
 syn match     moveModPathSep  "::"
 
 syn match     moveFuncCall    "\w\(\w\)*("he=e-1,me=e-1
-syn match     moveFuncCall    "\w\(\w\)*::<"he=e-3,me=e-3 " foo::<T>();
+syn match     moveFuncCall    "\w\(\w\)*<"he=e-3,me=e-3 " foo<T>();
 
 " This is merely a convention; note also the use of [A-Z], restricting it to
 " latin identifiers rather than the full Unicode uppercase. I have not used
