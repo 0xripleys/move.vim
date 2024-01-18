@@ -28,6 +28,7 @@ syn match moveExistentialContextual /\<existential\_s\+type/ transparent contain
 syn match     moveAssert      "\<assert\(\w\)*!" contained
 syn match     movePanic       "\<panic\(\w\)*!" contained
 syn match     moveAsync       "\<async\%(\s\|\n\)\@="
+syn keyword   moveKeyword     has
 syn keyword   moveKeyword     break
 syn keyword   moveKeyword     box
 syn keyword   moveKeyword     continue
